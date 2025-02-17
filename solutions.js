@@ -8,15 +8,15 @@ function factorial(n) {
   if (n == 1 || n==0 ) {
     return 1
   }else{
-    return n = factorial(n-1) * n
+    return factorial(n-1) * n
   }
 }
 
 // Find the Largest Number
 function findLargest(arr) {
-  let Mayor = 0;
+  let Mayor = arr[0];
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > arr[i-1]) {
+    if (arr[i] > Mayor) {
       Mayor = arr[i]
     }
   }
@@ -47,10 +47,12 @@ function countVowels(str) {
 function isPrime(n) {
   if ( n <= 1 ) {
     return false
+  }else if (n == 2  || n == 3) {
+    return true;
   }else if (n % 2 === 0 || n % 3 === 0) {
     return false;
   }else{
-    for (let i = 2; i <= Math.sqrt(n); i++) {
+    for (let i = 5; i <= Math.sqrt(n); i+=2) {
         if (n % i === 0){
           return false;
         }
